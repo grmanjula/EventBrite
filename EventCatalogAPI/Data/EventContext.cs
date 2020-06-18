@@ -27,7 +27,7 @@ namespace EventCatalogAPI.Data
             modelBuilder.Entity<EventType>(e =>
             {
                 e.ToTable("EventTypes");
-                e.Property(t => t.ID)
+                e.Property(t => t.EventTypeId)
                 .IsRequired()
                 .UseHiLo("Event_Types_hilo");
 
