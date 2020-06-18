@@ -38,6 +38,10 @@ namespace EventCatalogAPI.Data
             }
             if (!eventContext.EventItems.Any())
             {
+                eventContext.EventItems.AddRange(GetEventItems());
+                //To save the changes in the DB
+                //Records are not committed in DB. Very important step
+                eventContext.SaveChanges();
 
             }
 
@@ -124,8 +128,8 @@ namespace EventCatalogAPI.Data
             {
 
 
-            new EventItem{EventLocationId = 3, EventTypeId = 2, Name = "Jazz Music", Price = 45, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/1"},
-            new EventItem{EventLocationId = 2, EventTypeId = 3, Name = "Computer Science", Price = 55, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/2"}
+            new EventItem{EventLocationId = 1, EventTypeId = 1, Name = "Jazz Music", Price = 45, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/1"},
+           // new EventItem{EventLocationId = 2, EventTypeId = 3, Name = "Computer Science", Price = 55, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/2"}
 
 
             };

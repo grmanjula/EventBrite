@@ -27,9 +27,11 @@ namespace EventCatalogAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Dependency that I have for Microservice is Database hence adding the DB here
             services.AddControllers();
             services.AddDbContext<EventContext>(options =>
-             options.UseSqlServer(Configuration["ConnectionString"]));
+            options.UseSqlServer(Configuration["ConnectionString"]));
+            //Connection string was defined in the Appsettings.json that helps us change DB server details without having to compile the code
 
         }
 
