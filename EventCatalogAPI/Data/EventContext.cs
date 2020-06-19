@@ -30,7 +30,6 @@ namespace EventCatalogAPI.Data
                 e.Property(t => t.EventTypeId)
                 .IsRequired()
                 .UseHiLo("Event_Types_hilo");
-
                 e.Property(t => t.Name)
                 .IsRequired()
                 .HasMaxLength(200);

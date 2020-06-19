@@ -31,16 +31,14 @@ namespace EventCatalogAPI.Data
             if (!eventContext.EventTypes.Any())
             {
                 eventContext.EventTypes.AddRange(GetEventTypes());
-                //To save the changes in the DB
-                //Records are not committed in DB. Very important step
+               
                 eventContext.SaveChanges();
 
             }
             if (!eventContext.EventItems.Any())
             {
                 eventContext.EventItems.AddRange(GetEventItems());
-                //To save the changes in the DB
-                //Records are not committed in DB. Very important step
+              
                 eventContext.SaveChanges();
 
             }
@@ -54,29 +52,35 @@ namespace EventCatalogAPI.Data
                 new EventLocation
                 {
                     Address = "Redmond,WA",
-                    Mode = "Online"
+                    Mode = "Online",
+                    EventDate = Convert.ToDateTime(12/12/2020)
                 },
+
                 new EventLocation
                 {
                     Address = "Redmond,WA",
-                    Mode = "InPerson"
+                    Mode = "InPerson",
+                    EventDate = Convert.ToDateTime(12/12/2021),
                 },
                 new EventLocation
                 {
                     Address = "Bellevue,WA",
-                    Mode = "InPerson"
+                    Mode = "InPerson",
+                    EventDate = Convert.ToDateTime(12/12/2022),
                 },
 
                 new EventLocation
                 {
                     Address = "Bellevue,WA",
-                    Mode = "Online"
+                    Mode = "Online",
+                    EventDate = Convert.ToDateTime(12/12/2023),
                 },
 
                 new EventLocation
                 {
                     Address = "Irvine,CA",
-                    Mode = "InPerson"
+                    Mode = "InPerson",
+                    EventDate = Convert.ToDateTime(12/12/2024),
                 },
                 new EventLocation
                 {
@@ -127,11 +131,12 @@ namespace EventCatalogAPI.Data
             return new List<EventItem>()
             {
 
-
-            new EventItem{EventLocationId = 1, EventTypeId = 1, Name = "Jazz Music", Price = 45, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/1"},
-           // new EventItem{EventLocationId = 2, EventTypeId = 3, Name = "Computer Science", Price = 55, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/2"}
-
-
+            new EventItem{EventLocationId = 1, EventTypeId = 11, Name = "Jazz Music", Price = 15, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/1"},
+            new EventItem{EventLocationId = 2, EventTypeId = 12, Name = "Computer Science", Price = 25, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/2"},
+            new EventItem{EventLocationId = 3, EventTypeId = 13, Name = "Sports", Price = 35, Description ="Sports Event By SeaHawks", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/3"},
+            new EventItem{EventLocationId = 4, EventTypeId = 14, Name = "Spiritual", Price = 45, Description ="Aradhana", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/4"},
+            new EventItem{EventLocationId = 5, EventTypeId = 15, Name = "Jazz Music", Price = 55, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/5"},
+            
             };
 
         }
