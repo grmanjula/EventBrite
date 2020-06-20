@@ -131,11 +131,11 @@ namespace EventCatalogAPI.Data
             return new List<EventItem>()
             {
 
-            new EventItem{EventLocationId = 1, EventTypeId = 11, Name = "Jazz Music", Price = 15, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/1"},
-            new EventItem{EventLocationId = 2, EventTypeId = 12, Name = "Computer Science", Price = 25, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/2"},
-            new EventItem{EventLocationId = 3, EventTypeId = 13, Name = "Sports", Price = 35, Description ="Sports Event By SeaHawks", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/3"},
-            new EventItem{EventLocationId = 4, EventTypeId = 14, Name = "Spiritual", Price = 45, Description ="Aradhana", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/4"},
-            new EventItem{EventLocationId = 5, EventTypeId = 15, Name = "Jazz Music", Price = 55, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/pic/5"},
+            new EventItem{EventLocationId = 1, EventTypeId = 11, Name = "Jazz Music", Price = 15, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/1"},
+            new EventItem{EventLocationId = 2, EventTypeId = 12, Name = "Computer Science", Price = 25, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/2"},
+            new EventItem{EventLocationId = 3, EventTypeId = 13, Name = "Sports", Price = 35, Description ="Sports Event By SeaHawks", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/3"},
+            new EventItem{EventLocationId = 4, EventTypeId = 14, Name = "Spiritual", Price = 45, Description ="Aradhana", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/4"},
+            new EventItem{EventLocationId = 5, EventTypeId = 15, Name = "Jazz Music", Price = 55, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/5"},
             
             };
 
