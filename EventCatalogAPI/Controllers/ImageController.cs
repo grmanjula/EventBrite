@@ -21,12 +21,18 @@ namespace EventCatalogAPI.Controllers
         {
             _env = env;
         }
+        //here we are making a sub route
+        [HttpGet("{id}")]
+        // Return type of the method is IActionResult
 
+            //Any method you can write in controller can only give back Acttion result
+           //Return type of this method is IActionResult
         public IActionResult GetImage(int id)
         {
             var webroot = _env.WebRootPath;
             var path = Path.Combine($"{webroot}/Images/", $"Image{id}.jpg");
             var buffer =  System.IO.File.ReadAllBytes(path);
+          //  In the below line we are saying we are returning a jpeg file and it should be Jpeg not jpg as these are industry standards
             return File(buffer, "image/jpeg");
             
         }
