@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\CatalogController - Copy.cs" />
     <Compile Remove="Migrations\20200615222833_initial.cs" />
     <Compile Remove="Migrations\20200615222833_initial.Designer.cs" />
   </ItemGroup>

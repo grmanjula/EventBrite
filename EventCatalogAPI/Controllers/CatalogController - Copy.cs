@@ -21,14 +21,14 @@ namespace EventCatalogAPI.Controllers
 
         }
         //To verify in postman https://localhost:44315/api/Catalog\items
-        //To Verify by Page Index https://localhost:44315/api/Catalog\items?page
+        //To Verify by Page Index https://localhost:44315/api/Catalog\items?pageIndex=2&pageSize=5
         //We are using Async so we need to write Task as well
         [HttpGet("[action]")]
         public async Task<IActionResult> Items(
            [FromQuery] int pageIndex =0,
             [FromQuery] int pageSize =6)
         {
-            var items = await   _context.EventItems
+            var items = await _context.EventItems
             .OrderBy(c => c.Name)
             .Skip(pageIndex * pageSize)
             .Take(pageSize)
