@@ -50,6 +50,7 @@ namespace EventCatalogAPI.Controllers
                 PageSize = items.Count,
                 Data = items,
                 Count = itemsCount
+                //KAL CODE itemsCount.Result
             };
             return Ok(model);
         }
@@ -63,5 +64,74 @@ namespace EventCatalogAPI.Controllers
 
             return items;
         }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> EventTypes()
+        {
+            var types = await _context.EventTypes.ToListAsync();
+            return Ok(types);
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> EventLocations()
+        {
+            var locations = await _context.EventTypes.ToListAsync();
+            return Ok(locations);
+        }
+
+        [HttpGet("[action]/type/{EventTypeId}/location/{EventLocationId}")]
+        public async Task<IActionResult> Items(
+
+            int? eventTypeId,
+            int? eventLocationID,
+            [FromQuery] int pageIndex = 0,
+            [FromQuery] int pageSize = 6)
+        {
+
+            //Type casting to IQueryable from Entitiy Frame work will make it build the query not to run it.
+            //Without that it will execute the query and with millions of records getting DBSet and filtering out is very inefficient
+            var query = (IQueryable<EventItem>)_context.EventItems;
+
+            if (eventTypeId.HasValue)
+            {
+                query = query.Where(c => c.EventTypeId == eventTypeId);
+            }
+
+            //We don't write the below code as it will always return a empty set
+            //_context.EventItems.Where(c=> 
+            //c.EventTypeId == eventTypeId 
+            //&& c.EventLocationId == eventLocationID)
+
+            if (eventLocationID.HasValue)
+            {
+                query = query.Where(c => c.EventLocationId == eventLocationID);
+            }
+
+            var itemsCount = query.LongCountAsync();
+            var items = await query
+            .OrderBy(c => c.Name)
+            .Skip(pageIndex * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+            items = ChangeImageUrl(items);
+
+            // items = ChangeImageUrl
+
+            var model = new PaginatedItemsViewModel<EventItem>
+            {
+                PageIndex = pageIndex,
+                PageSize = items.Count,
+                Data = items,
+                Count = itemsCount.Result
+            };
+            return Ok(model);
+
+        }
+            
+
+            
     }
 }

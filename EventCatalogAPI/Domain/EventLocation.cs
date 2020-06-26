@@ -7,7 +7,9 @@ namespace EventCatalogAPI.Domain
 {
     public class EventLocation
     {
-        public int EventLocationID { get; set; }
+        //EventLocationID EventLocationId
+        public int EventLocationId { get; set; }
+        //public int EventLocationID { get; set; }
         public DateTime EventDate { get; set; }
         public string Address { get; set; }
         public string Mode { get; set; }

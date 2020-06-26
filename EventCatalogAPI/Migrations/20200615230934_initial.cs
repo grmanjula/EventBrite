@@ -55,14 +55,14 @@ namespace EventCatalogAPI.Migrations
                     Price = table.Column<decimal>(nullable: false),
                     ImageUrl = table.Column<string>(nullable: true),
                     EventTypeId = table.Column<int>(nullable: false),
-                    EventLocationId = table.Column<int>(nullable: false)
+                    EventLocationID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EventItems", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_EventItems_EventLocations_EventLocationId",
-                        column: x => x.EventLocationId,
+                        name: "FK_EventItems_EventLocations_EventLocationID",
+                        column: x => x.EventLocationID,
                         principalTable: "EventLocations",
                         principalColumn: "EventLocationID",
                         onDelete: ReferentialAction.Cascade);
@@ -75,9 +75,9 @@ namespace EventCatalogAPI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EventItems_EventLocationId",
+                name: "IX_EventItems_EventLocationID",
                 table: "EventItems",
-                column: "EventLocationId");
+                column: "EventLocationID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_EventItems_EventTypeId",

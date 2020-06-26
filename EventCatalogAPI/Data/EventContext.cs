@@ -39,7 +39,7 @@ namespace EventCatalogAPI.Data
             {
                 //Below we are asking Entity frame work to convert into table name EventLocations
                 e.ToTable("EventLocations");
-                e.Property(l => l.EventLocationID)
+                e.Property(l => l.EventLocationId)
                 .IsRequired()
                 .UseHiLo("Event_Location_hilo");
                 //Event_Location_hilo is the internal Sql Server name

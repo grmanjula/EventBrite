@@ -63,7 +63,7 @@ namespace EventCatalogAPI.Migrations
 
             modelBuilder.Entity("EventCatalogAPI.Domain.EventLocation", b =>
                 {
-                    b.Property<int>("EventLocationID")
+                    b.Property<int>("EventLocationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:HiLoSequenceName", "Event_Location_hilo")
@@ -80,7 +80,7 @@ namespace EventCatalogAPI.Migrations
                     b.Property<string>("Mode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EventLocationID");
+                    b.HasKey("EventLocationId");
 
                     b.ToTable("EventLocations");
                 });
