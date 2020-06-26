@@ -1,0 +1,13 @@
+https://localhost:44315/api/Catalog/items/type/12/location/1
+
+https://localhost:44315/api/Catalog/items?pageIndex=0&pageSize=30
+
+[action]/type/{EventTypeId}/location/{EventLocationId}
+
+
+
+
+migrationBuilder.RenameColumn(
+    name: "EventLocationID",
+    table: "EventLocations",
+    newName: "EventLocationId");
