@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,10 +30,15 @@ namespace EventCatalogAPI
         {
             //Dependency that I have for Microservice is Database hence adding the DB here
             services.AddControllers();
+            var databaseServer = Configuration["DatabaseServer"];
+            var databaseName = Configuration["DatabaseName"];
+            var databaseUser = Configuration["DatabaseUser"];
+            var databasePassword = Configuration["DatabasePassword"];
+            var connectionString = $"Server={databaseServer}; Database ={databaseName};User Id = {databaseUser}; Password ={databasePassword}";
             services.AddDbContext<EventContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionString"]));
+            options.UseSqlServer(Configuration["connectionString"]));
             //Connection string was defined in the Appsettings.json that helps us change DB server details without having to compile the code
-
+        }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

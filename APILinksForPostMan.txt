@@ -11,3 +11,24 @@ migrationBuilder.RenameColumn(
     name: "EventLocationID",
     table: "EventLocations",
     newName: "EventLocationId");
+
+
+
+https://localhost:44315/api/Catalog/LocationCountDetails
+
+WE have two controllers One is ImageController has one API called GetImage and the other one is CatalogController which has 6 API's. First API call is to Items/Event details which will get you all the Event details /items in this case 6 items by default ordered by the name.
+
+https://localhost:44315/api/Catalog/items?pageIndex=0&pageSize=30
+
+
+In the first API call to Items which will get you all the Event details/items based on the items in this case 6 by default
+
+In the second API call we can see the results of EventTypes
+
+https://localhost:44315/api/Catalog/EventTypes
+
+In the third APT call we can see the results of EventLocations
+
+https://localhost:44315/api/Catalog/EventLocations
+
+
