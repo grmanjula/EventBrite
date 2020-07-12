@@ -41,7 +41,7 @@ namespace EventCatalogAPI.Data
                 e.ToTable("EventLocations");
                 e.Property(l => l.EventLocationId)
                 .IsRequired()
-                .UseHiLo("Event_Location_hilo");
+                .UseHiLo("Event_Location_hilo");                
                 //Event_Location_hilo is the internal Sql Server name
                 //HoLo means DB will generate Id within range
                 //Test

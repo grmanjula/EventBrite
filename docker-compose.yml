@@ -6,7 +6,7 @@ networks:
 
 services:
   catalog:
-    image: eventBrite/eventcatalogapi
+    image: eventbrite/eventcatalogapi
     build:
       context: .\EventCatalogAPI
       dockerfile: Dockerfile
@@ -17,21 +17,22 @@ services:
       DatabaseUser: sa
       DatabasePassword: ProductApi(!)
     ports:
-     - "6810:80"
-    container_name:eventscatalogapi
+      - "6810:80"
+    container_name: eventscatalogapi
     networks:
-    - frontend
-    - backend
-    depends_on
-    - mssqlserver
+      - frontend
+      - backend
+    depends_on:
+      - mssqlserver
 
+  
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: ProductApi(!)
     ports:
-    - "1448:1433"
+      - "1448:1433"
     container_name: eventssqlserver
     networks:
-    - backend
+      - backend

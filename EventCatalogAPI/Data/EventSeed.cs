@@ -53,38 +53,40 @@ namespace EventCatalogAPI.Data
                 {
                     Address = "Redmond,WA",
                     Mode = "Online",
-                    EventDate = Convert.ToDateTime(12/12/2020)
+                    //EventDate = Convert.ToDateTime(12/12/2020)
+                    EventDate = "12/12/2020",
                 },
 
                 new EventLocation
                 {
                     Address = "Redmond,WA",
                     Mode = "InPerson",
-                    EventDate = Convert.ToDateTime(12/12/2021),
+                    EventDate = "12/12/2021",
                 },
                 new EventLocation
                 {
                     Address = "Bellevue,WA",
                     Mode = "InPerson",
-                    EventDate = Convert.ToDateTime(12/12/2022),
+                    EventDate = "12/12/2022",
                 },
 
                 new EventLocation
                 {
                     Address = "Bellevue,WA",
                     Mode = "Online",
-                    EventDate = Convert.ToDateTime(12/12/2023),
+                    EventDate = "12/12/2023",
                 },
 
                 new EventLocation
                 {
                     Address = "Irvine,CA",
                     Mode = "InPerson",
-                    EventDate = Convert.ToDateTime(12/12/2024),
+                    EventDate = "12/12/2024",
                 },
                 new EventLocation
                 {
                     Address = "Irvine,CA",
+                    EventDate = "12/12/2024",
                     Mode = "Online"
                 },
 
@@ -131,11 +133,11 @@ namespace EventCatalogAPI.Data
             return new List<EventItem>()
             {
 
-            new EventItem{EventLocationId = 1, EventTypeId = 11, Name = "Jazz Music", Price = 15, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/1"},
-            new EventItem{EventLocationId = 2, EventTypeId = 12, Name = "Computer Science", Price = 25, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/2"},
-            new EventItem{EventLocationId = 3, EventTypeId = 13, Name = "Sports", Price = 35, Description ="Sports Event By SeaHawks", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/3"},
-            new EventItem{EventLocationId = 4, EventTypeId = 14, Name = "Spiritual", Price = 45, Description ="Aradhana", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/4"},
-            new EventItem{EventLocationId = 5, EventTypeId = 15, Name = "Jazz Music", Price = 55, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/5"},
+            new EventItem{EventLocationId = 1, EventTypeId = 1, Name = "Jazz Music", Price = 15, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/1"},
+            new EventItem{EventLocationId = 2, EventTypeId = 2, Name = "Computer Science", Price = 25, Description ="Educational Event By Praveen Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/2"},
+            new EventItem{EventLocationId = 3, EventTypeId = 3, Name = "Sports", Price = 35, Description ="Sports Event By SeaHawks", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/3"},
+            new EventItem{EventLocationId = 4, EventTypeId = 4, Name = "Spiritual", Price = 45, Description ="Aradhana", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/4"},
+            new EventItem{EventLocationId = 5, EventTypeId = 5, Name = "Jazz Music", Price = 55, Description ="Musical Event By Matt H Redmond", ImageUrl = "http://externaleventbaseurltobeplaced/api/image/5"},
             
             };
 

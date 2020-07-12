@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using EventCatalogAPI.Data;
 using Microsoft.AspNetCore.Builder;
@@ -34,11 +35,21 @@ namespace EventCatalogAPI
             var databaseName = Configuration["DatabaseName"];
             var databaseUser = Configuration["DatabaseUser"];
             var databasePassword = Configuration["DatabasePassword"];
-            var connectionString = $"Server={databaseServer}; Database ={databaseName};User Id = {databaseUser}; Password ={databasePassword}";
+            var connectionString = $"Server={databaseServer};Database ={databaseName};User Id = {databaseUser};Password ={databasePassword}";
             services.AddDbContext<EventContext>(options =>
-            options.UseSqlServer(Configuration["connectionString"]));
+            options.UseSqlServer(connectionString));
             //Connection string was defined in the Appsettings.json that helps us change DB server details without having to compile the code
-        }
+            services.AddSwaggerGen(options =>
+            { 
+                 //v1 below is very imp as we use it in path
+                options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "EventsOnContainers - EventCatalog API",
+                    Version = "v1",
+                    Description = "Event Catalog MicroService"
+
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +65,12 @@ namespace EventCatalogAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger()
+               .UseSwaggerUI(e =>
+               {
+                   e.SwaggerEndpoint("/swagger/v1/swagger.json", "EventCatalogAPI v1");
+               });
 
             app.UseEndpoints(endpoints =>
             {
