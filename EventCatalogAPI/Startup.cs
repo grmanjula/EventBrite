@@ -69,6 +69,7 @@ namespace EventCatalogAPI
             app.UseSwagger()
                .UseSwaggerUI(e =>
                {
+                   //We are adding end point path here
                    e.SwaggerEndpoint("/swagger/v1/swagger.json", "EventCatalogAPI v1");
                });
 
