@@ -1,6 +1,1 @@
-﻿use EventDb
-
-select * from EventLocations
-
-
-	EXEC sp_rename "[dbo].[EventLocations].[EventLocationID]", "EventLocationId", "COLUMN"
+﻿ALTER TABLE EventLocations AUTO_INCREMENT = 1;
