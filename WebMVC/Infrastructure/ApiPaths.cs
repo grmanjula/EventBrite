@@ -12,11 +12,11 @@ namespace WebMVC.Infrastructure
         {
             public static string GetAllTypes(string baseUri)
             {
-                return $"{baseUri}CatalogTypes";
+                return $"{baseUri}EventTypes";
             }
             public static string GetAllLocations(string baseUri)
             {
-                return $"{baseUri}CatalogBrands";
+                return $"{baseUri}EventLocations";
             }
             public static string GetAllEventItems(string baseUri, int page, int? location, int? type, int take)
             {

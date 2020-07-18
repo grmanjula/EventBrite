@@ -19,7 +19,7 @@ namespace WebMVC.Services
 
         public EventService(IConfiguration config,IHttpClient client)
         {
-            _baseurl = $"{config["CatalogUrl"]}/api/catalog/";
+            _baseurl = $"{config["CatalogUrl"]}api/Catalog/";
             _client = client;
 
 
@@ -51,8 +51,8 @@ namespace WebMVC.Services
                 items.Add(
                     new SelectListItem
                     {
-                        Value = location.Value<string>("id"),
-                        Text = location.Value<string>("location")
+                        Value = location.Value<string>("eventLocationId"),
+                        Text = location.Value<string>("address")
                     });
                
             }
@@ -76,11 +76,11 @@ namespace WebMVC.Services
             var types = JArray.Parse(datastring);
             foreach (var type in types)
             {
-                types.Add(
+                items.Add(
                     new SelectListItem
                     {
-                        Value = type.Value<string>("id"),
-                        Text = type.Value<string>("brand")
+                        Value = type.Value<string>("eventTypeId"),
+                        Text = type.Value<string>("name")
                     });
 
             }
