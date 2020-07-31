@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CartAPI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using StackExchange.Redis;
 
 namespace CartAPI
 {
@@ -26,6 +28,16 @@ namespace CartAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<ICartRepository, RedisCartRepository>();
+            services.AddSingleton<ConnectionMultiplexer>(cm =>
+            {
+                var configuration = ConfigurationOptions.Parse(Configuration["ConnectionString"], false);
+                configuration.ResolveDns = true;
+                configuration.AbortOnConnectFail = false;
+                return ConnectionMultiplexer.Connect(configuration);
+            });
+                
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

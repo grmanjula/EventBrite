@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CartAPI.Models
 {
-    interface ICartRepository
+    public interface ICartRepository
     {
         Task<Cart> GetCartAsync(string cartId);
         Task<Cart> UpdateCart(Cart basket);
