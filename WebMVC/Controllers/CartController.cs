@@ -21,15 +21,20 @@ namespace WebMVC.Controllers
         
         private readonly ICartService _cartService;
         //M
-        private readonly ICatalogService _catalogService;
+        //  private readonly ICatalogService _catalogService;
+        private readonly IEventService _eventservice;
         private readonly IIdentityService<ApplicationUser> _identityService;
         //M
-       public CartController(IIdentityService<ApplicationUser> identityService, ICartService cartService, ICatalogService catalogService)
+        //public CartController(IIdentityService<ApplicationUser> identityService, ICartService cartService, ICatalogService catalogService)
+        public CartController(IIdentityService<ApplicationUser> identityService, ICartService cartService, IEventService eventService)
 
         {
             _identityService = identityService;
             _cartService = cartService;
-            _catalogService = catalogService;
+
+            //M
+            //_catalogService = catalogService;
+            _eventservice = eventService;
 
 
 
