@@ -8,8 +8,8 @@ namespace CartAPI.Models
     public interface ICartRepository
     {
         Task<Cart> GetCartAsync(string cartId);
-        Task<Cart> UpdateCart(Cart basket);
-        Task<bool> DeleteCart(string id);
+        Task<Cart> UpdateCartAsync(Cart basket);
+        Task<bool> DeleteCartAsync(string id);
         IEnumerable<string> GetUsers();
     }
 }

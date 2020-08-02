@@ -32,6 +32,7 @@ services:
       dockerfile: Dockerfile
     environment:
       CatalogUrl: http://catalog/
+      CartUrl: http://cart
       IdentityUrl: http://192.168.0.12:6700
       CallBackUrl: http://localhost:6811
     ports:
@@ -40,7 +41,8 @@ services:
       - frontend
     depends_on:
       - catalog
-
+      - cart
+      - tokenserver
 
   tokenserver:
     build:

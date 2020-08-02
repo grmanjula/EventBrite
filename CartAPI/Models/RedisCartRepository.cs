@@ -23,7 +23,7 @@ namespace CartAPI.Models
           // Above you are getting DB from Redis to store your contents
 
         }
-        public async Task<bool> DeleteCart(string id)
+        public async Task<bool> DeleteCartAsync(string id)
         {
           return await  _database.KeyDeleteAsync(id);
         }
@@ -55,7 +55,7 @@ namespace CartAPI.Models
            return  _redis.GetServer(endpoints.First());
         }
 
-        public async Task<Cart> UpdateCart(Cart basket)
+        public async Task<Cart> UpdateCartAsync(Cart basket)
         {
             //StringSet says go set it by giving Key Value pair. The below line creates Cache for me and create if it doesn't exist
            var created = await  _database.StringSetAsync(basket.BuyerId, JsonConvert.SerializeObject(basket));

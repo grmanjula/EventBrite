@@ -33,13 +33,13 @@ namespace CartAPI.Controllers
         [ProducesResponseType(typeof(Cart), (int)HttpStatusCode.OK)]
         public async Task<IActionResult>  Post([FromBody]Cart value)
         {
-            var basket =  await _repository.UpdateCart(value);
+            var basket =  await _repository.UpdateCartAsync(value);
             return Ok(basket);
         }
         [HttpDelete("{id}")]
         public async void Delete(string id)
         {
-            await _repository.DeleteCart(id);
+            await _repository.DeleteCartAsync(id);
         }
     }
 }

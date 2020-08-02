@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using WebMVC.Models;
+using WebMVC.Services;
 using WebMVC.Infrastructure;
 using WebMVC.Services;
 
@@ -32,6 +35,12 @@ namespace WebMVC
             services.AddControllersWithViews();
             services.AddSingleton<IHttpClient, CustomHttpClient>();
             services.AddTransient<IEventService, EventService>();
+
+
+            services.AddTransient<IIdentityService<ApplicationUser>, IdentityService>();
+            services.AddTransient<ICartService, CartService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             var identityUrl = Configuration.GetValue<string>("IdentityUrl");
             var callBackUrl = Configuration.GetValue<string>("CallBackUrl");
             services.AddAuthentication(options =>
@@ -56,6 +65,7 @@ namespace WebMVC
                 options.Scope.Add("openid");
                 options.Scope.Add("profile");
                 options.Scope.Add("offline_access");
+                options.Scope.Add("basket");
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
 
