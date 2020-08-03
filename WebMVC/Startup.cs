@@ -33,13 +33,14 @@ namespace WebMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IHttpClient, CustomHttpClient>();
             services.AddTransient<IEventService, EventService>();
 
 
             services.AddTransient<IIdentityService<ApplicationUser>, IdentityService>();
             services.AddTransient<ICartService, CartService>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            
 
             var identityUrl = Configuration.GetValue<string>("IdentityUrl");
             var callBackUrl = Configuration.GetValue<string>("CallBackUrl");
@@ -47,7 +48,7 @@ namespace WebMVC
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-                // options.DefaultAuthenticateScheme = "Cookies";
+                options.DefaultAuthenticateScheme = "Cookies";
             })
             .AddCookie()
             .AddOpenIdConnect(options =>

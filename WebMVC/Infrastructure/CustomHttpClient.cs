@@ -27,13 +27,17 @@ namespace WebMVC.Infrastructure
 
         }
         public async Task<string> GetStringAsync(string uri,
-            string AuthorizationToken = null,
-            string AuthorizationMethod = "Bearer")
+            string authorizationToken = null,
+            string authorizationMethod = "Bearer")
         {
             //Whenever you put Async you need to put await otherwise that line gets executed and moves on before the task is complete
             //The below line is equivalent to opening post man browser, enter uri, select get
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
             //The below line is equivalent to clicking on send button
+            if (authorizationToken != null)
+            {
+                requestMessage.Headers.Authorization = new AuthenticationHeaderValue(authorizationMethod, authorizationToken);
+            }
             var response = await _client.SendAsync(requestMessage);
             //there will be multiple things to read but reading only message content 
             return await response.Content.ReadAsStringAsync();
