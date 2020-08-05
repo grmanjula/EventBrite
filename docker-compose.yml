@@ -35,6 +35,10 @@ services:
       CartUrl: http://cart
       IdentityUrl: http://192.168.0.12:6700
       CallBackUrl: http://localhost:6811
+      OrderUrl: http://order
+      StripePublicKey: pk_test_51HCDM0CIXwstmVzJXoeYGW4uTooy1i9L6sGazNQHq99NHniGvJbacW4fTu4hJrsscNzc0qdSgHw8iyFRSzmEzC3v00mAB2pWHb
+      StripePrivateKey: sk_test_51HCDM0CIXwstmVzJGNKqSLkbIELfi1nqViSbDCeelDU5skfgK9t6YRDOwK8ZEMnzB0nXXW5SKhNQtKR1DMfCDE9t00tMxWFWEK
+      ASPNETCORE_ENVIRONMENT: Development
     ports:
       - "6811:80"
     networks:
@@ -77,6 +81,7 @@ services:
     depends_on:
       - tokenserver
       - basket.data
+      - rabbitmq
 
   order:
     build:
