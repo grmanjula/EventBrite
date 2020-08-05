@@ -77,7 +77,11 @@ namespace EventCatalogAPI.Controllers
         [Route("[action]")]
         public async Task<IActionResult> EventLocations()
         {
-            var locations = await _context.EventTypes.ToListAsync();
+             var locations = await _context.EventTypes.ToListAsync();
+            // var locations = await _context.EventLocations.ToListAsync();
+           // var locations = await _context.EventLocations
+
+
             return Ok(locations);
         }
 
